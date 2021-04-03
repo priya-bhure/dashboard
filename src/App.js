@@ -13,7 +13,7 @@ const App = () => {
           <Switch>
               <Redirect exact from='/' to='/login' />
               <Route
-                  exact
+                  
                   path = "/login"
                   render = { (props) => <SignInComponent {...props} setUserType = {setUserType} />}
               /> 
@@ -24,7 +24,7 @@ const App = () => {
                 >
                 </Route>
                 <Route
-                    exact
+                    
                     path = "/categories/:id"
                     render = {(props) => <AuthComponent {...props} setUserType = {setUserType} isLoggedIn = {userType !== ''} ><Category {...props} /></AuthComponent>}
                 /> 
