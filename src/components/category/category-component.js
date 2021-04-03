@@ -15,12 +15,9 @@ const Category = (props) => {
     return (
         <div className="category-container">
             {
-                items.map((item) => {
-                    const keys = Object.keys(item);
-                    return (<Card onClick = {() => {}} data = {
-                            keys.map(key => key !== 'missions' &&  typeof item[key] === 'string' ? ({label: key, value: item[key]}): {}).filter(item => !!item.label)
-                        } />)
-                })
+               items.map((item, index) => (<Card key = {index} onClick = {() => {}} data = {
+                Object.keys(item).map(key => typeof item[key] === 'string' ? ({label: key, value: item[key]}): {}).filter(item => !!item.label)
+        } />))
             }
         </div>
     );

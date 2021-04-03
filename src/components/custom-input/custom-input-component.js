@@ -12,9 +12,9 @@ const CustomInput = ({type = '', placeholder = '', autoSelect = false, saveInput
     const handleChange = (e) => {
         setAuthErr({exists: false, error: ''})
         setInput(e.target.value)
-        if(e.target.value === ''){
-            saveInput('');
-        }
+        
+            saveInput(e.target.value);
+        
     }
 
     return (

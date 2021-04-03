@@ -2,7 +2,7 @@ import React, {Fragment} from 'react';
 import {Redirect} from 'react-router-dom';
 
 const AuthComponent = (props) => {
-    const isLoggedIn = props.isLoggedIn || sessionStorage.getItem('username') && sessionStorage.getItem('username') !== ''
+    const isLoggedIn =( (props.isLoggedIn || sessionStorage.getItem('username')) && (sessionStorage.getItem('username') !== ''))
 
     return(
         <Fragment>
