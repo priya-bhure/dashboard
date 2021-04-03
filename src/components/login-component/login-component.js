@@ -37,7 +37,7 @@ const SignInComponent = (props) => {
         }
     }
 
-    
+    console.log('rerender');
     return (
         <div className="signin-container">
             <div className="input">
