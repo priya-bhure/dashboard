@@ -11,7 +11,7 @@ const Categories = (props) => {
 
     useEffect(() => {
         let url = 'https://run.mocky.io/v3/602ccde9-9cf9-4d5d-a05e-54c262286ccc'
-        if (props.userType == 'admin') {
+        if (props.userType === 'admin') {
             url = 'https://run.mocky.io/v3/8934747c-34c5-4624-a36b-8c927b56a49e'
         }
         axios.get(url).then((response) => {

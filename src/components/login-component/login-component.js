@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import CustomInput from '../custom-input/custom-input-component';
 import CustomButton from '../custom-button/custom-button';
 import './login-component.css';
@@ -7,23 +7,23 @@ const SignInComponent = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [authErr, setAuthErr] = useState({error: '', exists: false});
-
-    useEffect(() => {
-        const data = sessionStorage.getItem('username');
-        if ( data && data !== '') {
-            props.history.push('/categories');
-        }
-    }, [])
+    
 
     const onClick = () => {
         if (username && password) {
             if (username.toLowerCase() === 'john doe' && password === 'john doe') {
                 sessionStorage.setItem('username', username);
+                sessionStorage.setItem('type', 'admin');
                 props.setUserType('admin');
+                props.setUsername(username);
+                props.isLoggedIn(true);
                 props.history.push('/categories');
             } else if (username.toLowerCase() === 'foo' && password === 'foo') {
                 sessionStorage.setItem('username', username);
+                sessionStorage.setItem('type', 'user');
                 props.setUserType('user');
+                props.setUsername(username);
+                props.isLoggedIn(true);
                 props.history.push('/categories');
             } else {
                 setAuthErr({exists: true, error: 'Invalid username and password'})
@@ -37,7 +37,7 @@ const SignInComponent = (props) => {
         }
     }
 
-    console.log('rerender');
+    
     return (
         <div className="signin-container">
             <div className="input">
