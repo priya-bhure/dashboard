@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import CustomInput from '../custom-input/custom-input-component';
 import CustomButton from '../custom-button/custom-button';
 import './login-component.css';
@@ -8,6 +8,12 @@ const SignInComponent = (props) => {
     const [password, setPassword] = useState('');
     const [authErr, setAuthErr] = useState({error: '', exists: false});
     
+    useEffect(() => {
+        const data = sessionStorage.getItem('username');
+        if ( data && data !== '') {
+            props.history.push('/categories');
+        }
+    }, [])
 
     const onClick = () => {
         if (username && password) {
